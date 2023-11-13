@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM alpine:3.18
 
 RUN apt-get update
 RUN apt-get install python3-pip -y
