@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM progrium/busybox
 
 RUN apt-get update
 RUN apt-get install python3-pip -y
