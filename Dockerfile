@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM bitnami/minideb:bullseye
 
 RUN apt-get update
 RUN apt-get install python3-pip -y
