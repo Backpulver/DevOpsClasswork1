@@ -14,4 +14,4 @@ jobs:
         run: docker build -t test_python_app .
 
       - name: Push Docker image
-        run: docker push backpulver/devops_technologies:tagname
+        run: docker push backpulver/devops_technologies:test_python_app
