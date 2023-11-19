@@ -33,5 +33,5 @@ jobs:
       - name: Install cli-markdown
         run: npm i -g cli-markdown
 
-      - name: Check markdown files
-        run: npm i cli-markdown
+      - name: Check README.md
+        run: md README.md
