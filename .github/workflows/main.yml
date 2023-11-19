@@ -1,20 +1,16 @@
 name: pipeline
-on: push
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   build-and-upload-container:
     runs-on: ubuntu-latest
     steps:
       - name: Clone
         uses: actions/checkout@v3
-
-      - name: Login to DockerHub
-        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build Docker image
-        run: docker build -t backpulver/devops_technologies:test_python_app .
-
-      - name: Push Docker image
-        run: docker push backpulver/devops_technologies:test_python_app
 
       - name: Install flake8
         run: |
@@ -35,3 +31,16 @@ jobs:
 
       - name: Check README.md
         run: md README.md
+
+      - name: Run unit tests
+        run: python3 -m unittest src/app_test.py
+
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: docker build -t backpulver/devops_technologies:test_python_app .
+
+      - name: Push Docker image
+        run: docker push backpulver/devops_technologies:test_python_app
+        
