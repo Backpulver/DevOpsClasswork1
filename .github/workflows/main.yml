@@ -28,4 +28,4 @@ jobs:
         run: pip install editorconfig-checker
 
       - name: Run EditorConfig Checker
-        run: editorconfig-checker
+        run: ec
